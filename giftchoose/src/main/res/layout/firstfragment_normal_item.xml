@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  <ImageView
+      android:id="@+id/firstfragment_normal_item_icon_img"
+      android:layout_width="40dp"
+      android:layout_height="40dp" />
+  <TextView
+      android:id="@+id/firstfragment_normal_item_one_txt"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="hello"
+      android:layout_toRightOf="@id/firstfragment_normal_item_icon_img"/>
+   <TextView
+       android:id="@+id/firstfragment_normal_item_two_txt"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="hello"
+       android:layout_toRightOf="@id/firstfragment_normal_item_icon_img"
+       android:layout_alignBottom="@id/firstfragment_normal_item_icon_img"/>
+  <ImageView
+      android:id="@+id/firstfragment_normal_item_pic_img"
+      android:layout_width="match_parent"
+      android:layout_height="180dp"
+      android:src="@drawable/main_head1"
+      android:scaleType="centerCrop"
+      android:layout_below="@id/firstfragment_normal_item_icon_img"/>
+  <TextView
+      android:id="@+id/firstfragment_normal_item_title_txt"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="hello"
+      android:layout_below="@id/firstfragment_normal_item_pic_img"/>
+  <TextView
+      android:id="@+id/firstfragment_normal_item_decrible_txt"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="hello"
+      android:layout_below="@id/firstfragment_normal_item_title_txt"/>
+  <TextView
+      android:id="@+id/firstfragment_normal_item_type_txt"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="hello"
+      android:layout_below="@id/firstfragment_normal_item_decrible_txt"/>
+  <TextView
+      android:id="@+id/firstfragment_narmal_item_mark__txt"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="hello"
+      android:layout_alignParentRight="true"
+      android:layout_alignBottom="@id/firstfragment_normal_item_type_txt"/>
+</RelativeLayout>

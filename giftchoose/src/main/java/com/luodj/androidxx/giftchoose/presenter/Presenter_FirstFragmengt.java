@@ -23,7 +23,7 @@ public class Presenter_FirstFragmengt implements ICallBack_Model{
         this.iCallBack_main = iCallBack_main;
     }
 
-    public  Presenter_FirstFragmengt setPath(String head, int num, String end, int offset){
+    public  Presenter_FirstFragmengt setPath(String head, String num, String end, String offset){
         path = head+num+end+offset;
         return  this;
     }
