@@ -22,7 +22,7 @@ public class Presenter_FirstFragmengt implements ICallBack_Model{
     public Presenter_FirstFragmengt(ICallBack_Main iCallBack_main) {
         this.iCallBack_main = iCallBack_main;
     }
-
+   public void setiCallBack_main(){}
     public  Presenter_FirstFragmengt setPath(String head, String num, String end, String offset){
         path = head+num+end+offset;
         return  this;
@@ -36,7 +36,7 @@ public class Presenter_FirstFragmengt implements ICallBack_Model{
 
     /**
      * @param result api解析字符串数据
-     * @param type   1 表示tablelayout 2 表示viewpager 3 表示 gridview 4 表示 listview
+     * @param type   1 表示tablayout 2 表示viewpager 3 表示 gridview 4 表示 listview
      */
     @Override
     public void getSuccessResult(String result,int type) {

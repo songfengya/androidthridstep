@@ -10,7 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import com.luodj.androidxx.giftchoose.R;
-import com.luodj.androidxx.giftchoose.ui.fragment.FirstFragment;
+import com.luodj.androidxx.giftchoose.ui.fragment.FirstFragment_1;
 import com.luodj.androidxx.giftchoose.ui.fragment.FourthFragment;
 import com.luodj.androidxx.giftchoose.ui.fragment.SecondFragment;
 import com.luodj.androidxx.giftchoose.ui.fragment.ThridFragment;
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 //        mButton_one.setTextColor(getResources().getColor(R.color.color_hong));
         mFragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-        Fragment fragment = FirstFragment.getInstance();
+        Fragment fragment = FirstFragment_1.getInstance();
         fragmentTransaction.add(R.id.main_frag_layout,fragment);
          fragmentTransaction.show(fragment);
         fragmentTransaction.commit();
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId){
                     case R.id.main_radiobutton_one:
-                        change(FirstFragment.getInstance());
+                        change(FirstFragment_1.getInstance());
                         break;
                     case R.id.main_radiobutton_two:
                         change(SecondFragment.getInstance());

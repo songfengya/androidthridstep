@@ -5,6 +5,7 @@ import android.content.Context;
 import com.luodj.androidxx.giftchoose.been.First_TitleBeen;
 import com.luodj.androidxx.giftchoose.presenter.ICallBack_Model;
 import com.luodj.androidxx.giftchoose.tool.ICallBack;
+import com.luodj.androidxx.giftchoose.tool.LogUtils;
 import com.luodj.androidxx.giftchoose.tool.OkHttpTools;
 
 import okhttp3.Call;

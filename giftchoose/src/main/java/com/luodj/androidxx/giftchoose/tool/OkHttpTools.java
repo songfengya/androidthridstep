@@ -23,17 +23,17 @@ import okhttp3.Response;
  * Created by Administrator on 2016/11/2.
  */
 public class OkHttpTools {
+    private static final String TAG = "androidxx";
     // 每个工程中建议只有一个OkHttpClient的对象
     private  static  OkHttpClient okHttpClient;
    private static List<Call> callList = new ArrayList<>();
     public static OkHttpHelper initOkHttp(String path, Context context){
-        if (!networkIsWork(context)) {
-            return null;
-        }
+//        if (!networkIsWork(context)) {
+//            return null;
+//        }
         if (okHttpClient == null) {
             okHttpClient = new OkHttpClient();
         }
-
         return new OkHttpHelper(path);
     }
     private static  boolean networkIsWork(Context context){
@@ -124,8 +124,8 @@ public class OkHttpTools {
 
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
-                    String name = Thread.currentThread().getName();
-                    Log.i("androidxx", "onResponse: "+name);
+//                    String name = Thread.currentThread().getName();
+//                    Log.i("androidxx", "onResponse: "+name);
                     Message message = handler.obtainMessage();
                     message.what=1;
                     message.obj = response.body().string();
