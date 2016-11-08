@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -30,10 +31,10 @@ import static com.luodj.androidxx.giftchoose.R.id.firstfragment_normal_item_pic_
 public class FirstFragment_Normal extends Fragment {
     private  Context context;
     private ListView mListView;
-    private Presenter_FirstFragmengt presenter_firstFragmengt;
-   private  List<First_ListViewBeen.DataBean.ItemsBean> itemsList = new ArrayList<>();
+    private  List<First_ListViewBeen.DataBean.ItemsBean> itemsList = new ArrayList<>();
     private MyAdapter myAdapter;
-
+   private int countNum;
+    private int offset = 0 ;
     public static FirstFragment_Normal getInstance(int num){
         FirstFragment_Normal firstFragment_normal = new FirstFragment_Normal();
         Bundle bundle = new Bundle();
@@ -54,17 +55,19 @@ public class FirstFragment_Normal extends Fragment {
         View view = inflater.inflate(R.layout.firstfragment_normal, container, false);
         Bundle bundle = getArguments();
         int id = bundle.getInt("id");
+        countNum = id;
         initView(view);
         initData(id);
         return view;
     }
 
     private void initData(int num) {
-        presenter_firstFragmengt = new Presenter_FirstFragmengt(new ICallBack_Main() {
+        Presenter_FirstFragmengt presenter_firstFragmengt = new Presenter_FirstFragmengt(new ICallBack_Main() {
             @Override
             public void getMainResult(Object object) {
                 First_ListViewBeen first_listViewBeen = (First_ListViewBeen) object;
                 First_ListViewBeen.DataBean data = first_listViewBeen.getData();
+                offset = offset+20;
                  itemsList.addAll(data.getItems());
                 myAdapter.notifyDataSetChanged();
             }
@@ -76,8 +79,36 @@ public class FirstFragment_Normal extends Fragment {
         mListView = (ListView)view.findViewById(R.id.firstfragment_normal_listview);
         myAdapter = new MyAdapter(context);
         mListView.setAdapter(myAdapter);
+        setListener();
     }
-   class  MyAdapter extends BaseAdapter{
+
+    private void setListener() {
+        mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                if (firstVisibleItem+visibleItemCount  == totalItemCount) {
+                    Presenter_FirstFragmengt presenter_firstFragmengt = new Presenter_FirstFragmengt(new ICallBack_Main() {
+                        @Override
+                        public void getMainResult(Object object) {
+                            First_ListViewBeen first_listViewBeen = (First_ListViewBeen) object;
+                            First_ListViewBeen.DataBean data = first_listViewBeen.getData();
+                            itemsList.addAll(data.getItems());
+                            myAdapter.notifyDataSetChanged();
+                        }
+                    }).setPath(HttpUrl.PATH_FIRSTFRAGMENT_LISTVIEW_HEAD,countNum+"",HttpUrl.PATH_FIRSTFRAGMENT_LISTVIEW_END,offset+"");
+                    presenter_firstFragmengt.initFirstFragment_Title_Model(context,4);
+                    offset +=20;
+                }
+            }
+        });
+    }
+
+    class  MyAdapter extends BaseAdapter{
        private LayoutInflater myInflater;
        private  Context context;
        public MyAdapter(Context context) {

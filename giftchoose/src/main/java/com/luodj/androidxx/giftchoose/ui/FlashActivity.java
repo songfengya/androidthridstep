@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.luodj.androidxx.giftchoose.R;
+import com.luodj.androidxx.giftchoose.constant.AppConstant;
 
 public class FlashActivity extends AppCompatActivity {
 

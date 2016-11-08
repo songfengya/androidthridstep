@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.luodj.androidxx.giftchoose.R;
 import com.luodj.androidxx.giftchoose.been.First_TitleBeen;
+import com.luodj.androidxx.giftchoose.constant.AppConstant;
 import com.luodj.androidxx.giftchoose.constant.HttpUrl;
 import com.luodj.androidxx.giftchoose.presenter.Presenter_FirstFragmengt;
 import com.luodj.androidxx.giftchoose.tool.LogUtils;
@@ -38,7 +39,7 @@ public class FirstFragment_1 extends Fragment {
 
     private MyViewPageAdapter myViewPageAdapter;
     private Presenter_FirstFragmengt presenter_firstFragmengt;
-   private List<String> titleList = new ArrayList<>();
+    private List<String> titleList = new ArrayList<>();
     private List<Integer> idList = new ArrayList<>();
     private List<Fragment> fragmentList = new ArrayList<>();
     private ViewPager viewPager;
